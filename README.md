@@ -78,3 +78,9 @@ The application consists of two main components:
 
 
        
+
+
+## External Tools and Licenses
+
+*   **OLLAMA**: Used for running language models locally. It is open-source and distributed under the **MIT License**.
+*   **curl**: A command-line tool used for transferring data with URLs. It is distributed under a permissive open-source license, similar to the **MIT/X license**.
