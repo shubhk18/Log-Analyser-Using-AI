@@ -54,7 +54,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Escape special characters in the log content to safely embed it in the Modelfile.
-ESCAPED_LOG_CONTEXT=$(echo "$LOG_CONTEXT" | sed 's/\/\\/g' | sed 's/"/\"/g')
+ESCAPED_LOG_CONTEXT=$(echo "$LOG_CONTEXT" | sed 's/"/\\"/g')
 
 # Create the Modelfile. This defines a new model that has the log as part of its system prompt.
 cat > "$MODELFILE_PATH" << EOL
