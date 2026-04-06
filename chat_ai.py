@@ -87,12 +87,18 @@ def main():
     
     args = parser.parse_args()
 
+    # If no provider prefix is provided (e.g. "llama3" instead of "ollama/llama3"), 
+    # assume it's an Ollama model for local-first convenience.
+    model_name = args.model
+    if "/" not in model_name:
+        model_name = f"ollama/{model_name}"
+
     # Step 1: Fetch the log
     print(f"Fetching log: {args.log_file}...")
     log_content = fetch_log(args.log_file)
 
     # Step 2: Start the chat session
-    start_chat(log_content, args.model)
+    start_chat(log_content, model_name)
 
 if __name__ == "__main__":
     main()
