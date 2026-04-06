@@ -28,11 +28,19 @@ The application consists of three main components:
 
 ## Setup
 
-1.  **Install dependencies**:
+1.  **Create and activate a virtual environment**:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On macOS/Linux
+    # venv\Scripts\activate   # On Windows
+    ```
+
+2.  **Install dependencies**:
     ```bash
     pip install -r requirements.txt
     ```
-2.  **Configure LLM** (Optional):
+
+3.  **Configure LLM** (Optional):
     Copy `.env.example` to `.env` and set your preferred model and API keys.
     ```bash
     cp .env.example .env
