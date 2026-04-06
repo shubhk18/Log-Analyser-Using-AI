@@ -12,16 +12,14 @@ The application consists of two main components:
 
 ```
 .
+├── .gitignore
 ├── detailed_log.txt
-├── f1.cpp
-├── log generator.cpp
-├── log_generator
 ├── log_generator.py
 ├── mcp_server.py
-├── mysql_connection_detailed.log
+├── Modelfile.gemini-log-chat
+├── mysql_connection.log
 ├── README.md
-├── start_chat.sh
-└── venv/
+└── start_chat.sh
 ```
 
 ## How to run the project

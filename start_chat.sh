@@ -13,7 +13,7 @@
 #   ./start_chat.sh llama3 mysql_connection_detailed.log
 
 # --- Configuration ---
-DEFAULT_MODEL="lama3.2:latest"
+DEFAULT_MODEL="llama3.2:latest"
 DEFAULT_LOG_FILE="mysql_connection.log"
 SERVER_BASE_URL="http://localhost:8000/log"
 TEMP_MODEL_NAME="gemini-log-chat-temp"

@@ -1,8 +1,0 @@
-LOG_CONTEXT=$(curl -s http://localhost:8000/log/mysql_connection.log) && \
-ollama run llama3.2:latest "Here is a log file for context. Please analyze it. I will ask you questions about it.
-
---- LOG FILE START ---
-$LOG_CONTEXT
---- LOG FILE END ---
-
-I am ready for your questions."
