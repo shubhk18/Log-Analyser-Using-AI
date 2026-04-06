@@ -2,42 +2,58 @@
 
 ## Architecture
 
-The application consists of two main components:
+The application consists of three main components:
 
-*   `mcp_server.py`: A Python script that creates an HTTP server to serve log files. It has a predefined list of accessible log files.
-*   `start_chat.sh`: A shell script that uses OLLAMA to create a temporary chat model with the contents of a log file as context. This allows you to chat with your log files.
-*   **Log files**: Plain text files containing log data (`mysql_connection_detailed.log`, `detailed_log.txt`, etc.).
+*   `mcp_server.py`: A Python script that creates an HTTP server to serve log files.
+*   `chat_ai.py`: A **generic** Python client that uses `litellm` to connect to any LLM provider (Ollama, Gemini, OpenAI, etc.).
+*   `start_chat.sh`: (Legacy) A shell script specifically for local Ollama usage.
+*   **Log files**: Plain text files containing log data.
 
 ## File Hierarchy
 
 ```
 .
+├── .env.example
 ├── .gitignore
+├── chat_ai.py
 ├── detailed_log.txt
 ├── log_generator.py
 ├── mcp_server.py
 ├── Modelfile.gemini-log-chat
 ├── mysql_connection.log
 ├── README.md
+├── requirements.txt
 └── start_chat.sh
 ```
 
-## How to run the project
+## Setup
 
-1.  **Start the server**: In one terminal, run the Python server:
+1.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+2.  **Configure LLM** (Optional):
+    Copy `.env.example` to `.env` and set your preferred model and API keys.
+    ```bash
+    cp .env.example .env
+    ```
+
+## How to run
+
+1.  **Start the server**:
     ```bash
     python3 mcp_server.py
     ```
-2.  **Start the chat session**: In another terminal, run the `start_chat.sh` script. You can optionally specify the OLLAMA model and the log file to use.
+2.  **Start the chat session**:
     ```bash
-    # Start a chat with the default model and log file
-    ./start_chat.sh
+    # Use default model (defined in .env or Ollama)
+    python3 chat_ai.py
 
-    # Specify a model
-    ./start_chat.sh mistral
+    # Specify a model (e.g., Gemini)
+    python3 chat_ai.py --model gemini/gemini-1.5-flash
 
-    # Specify a model and a log file
-    ./start_chat.sh llama3 mysql_connection_detailed.log
+    # Specify a log file
+    python3 chat_ai.py detailed_log.txt
     ```
 
 ## Data Flow
