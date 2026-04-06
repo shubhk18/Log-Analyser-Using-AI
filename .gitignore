@@ -1,6 +1,7 @@
 # Logs
 *.log
 *.txt
+!requirements.txt
 
 # Python
 __pycache__/

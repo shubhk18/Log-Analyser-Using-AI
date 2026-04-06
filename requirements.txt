@@ -1,0 +1,6 @@
+litellm
+python-dotenv
+requests
+drain3
+faiss-cpu
+numpy
